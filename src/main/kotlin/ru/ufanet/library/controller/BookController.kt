@@ -31,6 +31,7 @@ class BookController(private val bookService: BookService) {
         return book
     }
 
+    @CrossOrigin(origins = ["http://localhost:8081"])
     @DeleteMapping("{id}")
     fun deleteBook(@PathVariable id: Long) {
         bookService.remove(id)

@@ -1,41 +1,52 @@
 <template>
   <div>
-
-
-    <ul v-if="books && books.length">
-      <li v-for="book of books" :key="book">
-        <p><strong>{{ book.id }}</strong></p>
-        <p>{{ book.title }}</p>
-        <p>{{ book.count }}</p>
-        <br>
-        <button class="btn btn-primary">Knopka 1</button>
-        <button class="btn btn-primary">Knopka 2</button>
-      </li>
-    </ul>
-    <ul v-if="errors && errors.length">
-      <li v-for="error of errors" :key="error">
-        {{ error.message }}
-      </li>
-    </ul>
+    <table class="table table-striped" v-if="books && books.length">
+      <thead class="table-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Название</th>
+        <th scope="col">Количество</th>
+        <th scope="col">Управление</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="book of books" :key="book">
+        <td>{{ book.id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.quantity }}</td>
+        <td>
+          <button class="btn btn-secondary" style="margin-right:10px;" @click="editBook(book)">Изм.</button>
+          <button class="btn btn-danger" @click="removeBook(book)">Удалить</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
 import axios from 'axios';
+let url = 'http://localhost:8080/'
 
 export default {
   data() {
     return {
-      books: [],
-      errors: []
+      books: []
     }
   },
   created() {
-    axios.get(`http://localhost:8080/book/`).then(response => {
+    axios.get(url + 'book').then(response => {
       this.books = response.data
-    }).catch(e => {
-      this.errors.push(e)
     })
+  },
+  methods: {
+    removeBook: function (book) {
+      console.log(book.id);
+      axios.delete(url + 'book/' + book.id);
+    },
+    editBook: function (book) {
+      console.log(book.id);
+    }
   }
 }
 </script>

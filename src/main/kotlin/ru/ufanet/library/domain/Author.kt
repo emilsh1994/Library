@@ -9,12 +9,10 @@ import javax.persistence.Id
 data class Author(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
-
-    val surname: String,
-    val name: String,
-    val patronymic: String,
-
-    val description: String?
+    val id: Long = 0,
+    val surname: String = "",
+    val name: String = "",
+    val patronymic: String = "",
+    val description: String = ""
 )
 
