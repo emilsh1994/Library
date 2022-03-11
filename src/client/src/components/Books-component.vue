@@ -2,9 +2,9 @@
   <div>
     <ul v-if="books && books.length">
       <li v-for="book of books" :key="book">
-        <p><strong>{{ book.bookId }}</strong></p>
-        <p>{{ book.bookName }}</p>
-        <p>{{ book.bookCount }}</p>
+        <p><strong>{{ book.id }}</strong></p>
+        <p>{{ book.title }}</p>
+        <p>{{ book.count }}</p>
         <br>
       </li>
     </ul>

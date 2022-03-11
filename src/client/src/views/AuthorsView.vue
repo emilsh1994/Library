@@ -1,6 +1,6 @@
 <template>
   <div class="authors">
-    <h1>Authors are here</h1>
+    <h1>Список авторов:</h1>
     <Authors/>
   </div>
 </template>

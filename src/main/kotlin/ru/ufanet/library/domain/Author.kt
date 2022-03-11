@@ -9,7 +9,7 @@ import javax.persistence.Id
 data class Author(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val authorId: Long,
+    val id: Long,
 
     val surname: String,
     val name: String,

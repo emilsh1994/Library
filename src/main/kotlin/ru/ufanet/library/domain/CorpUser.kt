@@ -9,7 +9,7 @@ import javax.persistence.Id
 data class CorpUser(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val userId: Long,
+    val id: Long,
     val surname: String,
     val name: String,
     val patronymic: String

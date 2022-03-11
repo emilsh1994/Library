@@ -2,7 +2,7 @@
   <div>
     <ul v-if="authors && authors.length">
       <li v-for="author of authors" :key="author">
-        <p><strong>{{ author.authorId }}</strong></p>
+        <p><strong>{{ author.id }}</strong></p>
         <p>{{ author.surname }}</p>
         <p>{{ author.name }}</p>
         <p>{{ author.patronymic }}</p>
