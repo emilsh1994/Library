@@ -1,5 +1,6 @@
 package ru.ufanet.library.controller
 
+import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.DeleteMapping
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
@@ -14,6 +15,7 @@ import ru.ufanet.library.service.UserService
 @RequestMapping("/user")
 class UserController(private val userService: UserService) {
 
+    @CrossOrigin(origins = ["http://localhost:8081"])
     @GetMapping
     fun getAllUsers(): Iterable<CorpUser> {
         return userService.getAll()

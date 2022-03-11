@@ -8,6 +8,7 @@ import ru.ufanet.library.service.AuthorService
 @RequestMapping("/author")
 class AuthorController(private val authorService: AuthorService) {
 
+    @CrossOrigin(origins = ["http://localhost:8081"])
     @GetMapping
     fun getAuthors(): Iterable<Author> {
         return authorService.getAll()

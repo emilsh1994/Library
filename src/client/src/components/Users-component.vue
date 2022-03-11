@@ -1,10 +1,11 @@
 <template>
   <div>
-    <ul v-if="books && books.length">
-      <li v-for="book of books" :key="book">
-        <p><strong>{{ book.bookId }}</strong></p>
-        <p>{{ book.bookName }}</p>
-        <p>{{ book.bookCount }}</p>
+    <ul v-if="users && users.length">
+      <li v-for="user of users" :key="user">
+        <p><strong>{{ user.userId }}</strong></p>
+        <p>{{ user.surname }}</p>
+        <p>{{ user.name }}</p>
+        <p>{{ user.patronymic }}</p>
         <br>
       </li>
     </ul>
@@ -22,13 +23,13 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      books: [],
+      users: [],
       errors: []
     }
   },
   created() {
-    axios.get(`http://localhost:8080/book/`).then(response => {
-      this.books = response.data
+    axios.get(`http://localhost:8080/user/`).then(response => {
+      this.users = response.data
     }).catch(e => {
       this.errors.push(e)
     })
