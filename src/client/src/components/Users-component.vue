@@ -1,19 +1,28 @@
 <template>
   <div>
-    <ul v-if="users && users.length">
-      <li v-for="user of users" :key="user">
-        <p><strong>{{ user.id }}</strong></p>
-        <p>{{ user.surname }}</p>
-        <p>{{ user.name }}</p>
-        <p>{{ user.patronymic }}</p>
-        <br>
-      </li>
-    </ul>
-    <ul v-if="errors && errors.length">
-      <li v-for="error of errors" :key="error">
-        {{ error.message }}
-      </li>
-    </ul>
+    <table class="table table-striped" v-if="users && users.length">
+      <thead class="table-dark">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Фамилия</th>
+        <th scope="col">Имя</th>
+        <th scope="col">Отчество</th>
+        <th scope="col">Управление</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="user of users" :key="user">
+        <td>{{ user.id }}</td>
+        <td>{{ user.surname }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.patronymic }}</td>
+        <td>
+          <button class="btn btn-secondary" style="margin-right:10px;" @click="editUser(user)">Изм.</button>
+          <button class="btn btn-danger" @click="removeUser(user)">Удалить</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
@@ -25,6 +34,14 @@ export default {
     return {
       users: [],
       errors: []
+    }
+  },
+  methods: {
+    editUser: function(user) {
+      console.log('User id of ' + user.id)
+    },
+    removeUser: function(user) {
+      console.log('User id of ' + user.id)
     }
   },
   created() {

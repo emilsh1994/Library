@@ -1,15 +1,14 @@
 <template>
   <div class="books">
-    <h1>Книги</h1>
-  <Books/>
+  <BookComponent/>
   </div>
 </template>
 
 <script>
-  import Books from '@/components/Books-component.vue'
+  import BookComponent from '@/components/Books-component.vue'
   export default {
     components: {
-      Books
+      BookComponent
     }
   }
 </script>

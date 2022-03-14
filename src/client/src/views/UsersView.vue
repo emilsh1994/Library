@@ -1,15 +1,14 @@
 <template>
-  <div class="authors">
-    <h1>Пользователи:</h1>
-    <UsersComponent/>
+  <div class="users">
+    <UserComponent/>
   </div>
 </template>
 
 <script>
-import UsersComponent from "@/components/Users-component";
+import UserComponent from "@/components/Users-component";
 export default {
   components: {
-    UsersComponent
+    UserComponent
   }
 }
 </script>
