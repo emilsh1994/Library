@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.*
 import ru.ufanet.library.domain.Book
 import ru.ufanet.library.service.BookService
 
+//@CrossOrigin(origins = ["http://localhost:8081", "http://localhost:8081/book", "/**"])
 @RestController()
 @RequestMapping("/book")
 class BookController(private val bookService: BookService) {

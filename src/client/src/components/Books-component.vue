@@ -35,8 +35,11 @@ export default {
     removeBook(book) {
       let id = book.id
       console.log(id)
-      this.$store.dispatch('removeBook', id)
-      // Axios.delete('http://localhost:8080/book/' + id)
+      try {
+        this.$store.dispatch('deleteBook', id)
+      }catch(e) {
+        console.log(e)
+      }
     }
   },
   mounted() {
