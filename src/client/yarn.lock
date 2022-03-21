@@ -1616,7 +1616,7 @@
   optionalDependencies:
     "prettier" "^1.18.2 || ^2.0.0"
 
-"@vue/devtools-api@^6.0.0":
+"@vue/devtools-api@^6.0.0", "@vue/devtools-api@^6.0.0-beta.11":
   "integrity" "sha512-T34EjcArVqzANedEZe2kXQ+AZsld2z1ptJlkOGm87+blk+s6udnP4ze/NYqV8lz1o9AIivimN0xxteLlWiWQdg=="
   "resolved" "https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.0.13.tgz"
   "version" "6.0.13"
@@ -9150,7 +9150,7 @@
   "resolved" "https://registry.npmjs.org/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^2 || ^3.2.13", "vue@^3.2.0", "vue@^3.2.13", "vue@3.2.31":
+"vue@^2 || ^3.2.13", "vue@^3.0.2", "vue@^3.2.0", "vue@^3.2.13", "vue@3.2.31":
   "integrity" "sha512-odT3W2tcffTiQCy57nOT93INw1auq5lYLLYtWpPYQQYQOOdHiqFct9Xhna6GJ+pJQaF67yZABraH47oywkJgFw=="
   "resolved" "https://registry.npmjs.org/vue/-/vue-3.2.31.tgz"
   "version" "3.2.31"
@@ -9160,6 +9160,13 @@
     "@vue/runtime-dom" "3.2.31"
     "@vue/server-renderer" "3.2.31"
     "@vue/shared" "3.2.31"
+
+"vuex@^4.0.2":
+  "integrity" "sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q=="
+  "resolved" "https://registry.npmjs.org/vuex/-/vuex-4.0.2.tgz"
+  "version" "4.0.2"
+  dependencies:
+    "@vue/devtools-api" "^6.0.0-beta.11"
 
 "watchpack@^2.3.1":
   "integrity" "sha512-x0t0JuydIo8qCNctdDrn1OzH/qDzk2+rdCOC3YzumZ42fiMqmQ7T3xQurykYMhYfHaPHTp4ZxAx2NfUo1K6QaA=="

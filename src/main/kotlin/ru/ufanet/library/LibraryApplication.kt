@@ -3,6 +3,7 @@ package ru.ufanet.library
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
+
 @SpringBootApplication
 class LibraryApplication
 
