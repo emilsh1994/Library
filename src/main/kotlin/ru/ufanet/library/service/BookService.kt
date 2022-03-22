@@ -8,7 +8,7 @@ import ru.ufanet.library.repository.BookRepository
 class BookService(private val bookRepository: BookRepository) {
     fun getAll(): Iterable<Book> = bookRepository.findAll()
     fun getById(id: Long): Book = bookRepository.getById(id)
-    fun add(book: Book) = bookRepository.save(book)
+    fun add(book: Book): Book = bookRepository.save(book)
     fun edit(id: Long, book: Book): Book = bookRepository.save(book)
     fun remove(id: Long) = bookRepository.delete(bookRepository.getById(id))
 }

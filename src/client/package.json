@@ -13,7 +13,7 @@
     "popper": "^1.0.1",
     "vue": "^3.2.13",
     "vue-faker": "^3.0.0",
-    "vue-router": "^4.0.3",
+    "vue-router": "^4.0.14",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

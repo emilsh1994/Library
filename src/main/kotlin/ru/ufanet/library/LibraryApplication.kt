@@ -20,7 +20,6 @@ fun corsConfigurer(): WebMvcConfigurer? {
     return object : WebMvcConfigurer {
         override fun addCorsMappings(registry: CorsRegistry) {
             registry.addMapping("/**").allowedOrigins("*")
-//            registry.addMapping("/**").allowedOrigins("http://localhost:8081/book")
         }
     }
 }

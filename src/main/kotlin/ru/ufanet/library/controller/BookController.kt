@@ -20,9 +20,8 @@ class BookController(private val bookService: BookService) {
     }
 
     @PostMapping
-    fun addBook(book: Book): Book {
-        bookService.add(book)
-        return book
+    fun addBook(@RequestBody book: Book): Book {
+        return bookService.add(book)
     }
 
     @PutMapping("{id}")
