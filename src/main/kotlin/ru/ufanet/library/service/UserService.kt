@@ -8,7 +8,7 @@ import ru.ufanet.library.repository.UserRepository
 class UserService(private val userRepository: UserRepository) {
     fun getAll(): Iterable<CorpUser> = userRepository.findAll()
     fun getById(id: Long): CorpUser = userRepository.getById(id)
-    fun add(corpUser: CorpUser) = userRepository.save(corpUser)
+    fun add(corpUser: CorpUser): CorpUser = userRepository.save(corpUser)
     fun edit(id: Long, corpUser: CorpUser): CorpUser = userRepository.save(corpUser)
     fun remove(id: Long) = userRepository.delete(userRepository.getById(id))
 }

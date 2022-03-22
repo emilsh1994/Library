@@ -1,8 +1,8 @@
 <template>
-  <button style="margin:10px" @click="dialogVisibility">Добавить книгу</button>
-  <div v-if="dialogVisible">
-    <book-form @createBookAction="addBook"/>
-  </div>
+  <button style="margin: 10px" @click="dialogVisibility()">
+    Добавить книгу
+  </button>
+
   <div>
     <table class="table table-striped">
       <thead class="table-dark">
@@ -19,12 +19,26 @@
           <td>{{ book.title }}</td>
           <td>{{ book.quantity }}</td>
           <td>
-            <button class="btn btn-secondary" style="margin-right: 10px">
+            <button
+              class="btn btn-secondary"
+              style="margin-right: 10px"
+              @click="editBook(book)"
+            >
               Изм.
             </button>
+
             <button class="btn btn-danger" @click="removeBook(book)">
               Удалить
             </button>
+            
+            <div v-if="dialogVisible">
+              <book-form
+                @createBookAction="addBook"
+                @closeForm="dialogVisibility()"
+                :bookProp="book"
+              />
+            </div>
+
           </td>
         </tr>
       </tbody>
@@ -34,11 +48,13 @@
 
 <script>
 import BookForm from "@/components/BookForm.vue";
+
 export default {
   data() {
     return {
-      dialogVisible: false
-    }
+      dialogVisible: false,
+      bookToEdit: null,
+    };
   },
   components: {
     BookForm,
@@ -49,23 +65,29 @@ export default {
     },
   },
   methods: {
+    closeForm() {
+      this.dialogVisibility();
+    },
     dialogVisibility() {
-      this.dialogVisible = !this.dialogVisible
+      this.dialogVisible = !this.dialogVisible;
+    },
+    editBook(book) {
+      console.log(book.id + " for edit");
+      this.dialogVisible = true;
+      this.$emit("editingBook", book);
     },
     removeBook(book) {
       let id = book.id;
-      console.log(id);
-
       try {
         this.$store.dispatch("deleteBook", id);
       } catch (e) {
         console.log(e);
       }
     },
-    addBook(book1) {
+    addBook(book) {
       this.dialogVisible = false;
       try {
-        this.$store.dispatch("addBook", book1);
+        this.$store.dispatch("addBook", book);
       } catch (e) {
         console.log(e);
       }

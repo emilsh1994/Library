@@ -8,7 +8,7 @@ import ru.ufanet.library.repository.AuthorRepository
 class AuthorService(private val authorRepository: AuthorRepository) {
     fun getAll(): Iterable<Author> = authorRepository.findAll()
     fun getById(id: Long): Author = authorRepository.getById(id)
-    fun add(author: Author) = authorRepository.save(author)
+    fun add(author: Author): Author = authorRepository.save(author)
     fun edit(id: Long, author: Author): Author = authorRepository.save(author)
     fun remove(id: Long) = authorRepository.delete(authorRepository.getById(id))
 }
