@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="addBook">Добавить книгу</button>
     <table class="table table-striped">
       <thead class="table-dark">
       <tr>
@@ -37,6 +38,13 @@ export default {
       console.log(id)
       try {
         this.$store.dispatch('deleteBook', id)
+      }catch(e) {
+        console.log(e)
+      }
+    },
+    addBook() {
+      try {
+        this.$store.dispatch('addBook')
       }catch(e) {
         console.log(e)
       }
