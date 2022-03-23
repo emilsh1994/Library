@@ -4,6 +4,7 @@
       <input v-model="book.title" type="text" placeholder="Название книги" />
       <input v-model="book.quantity" type="number" placeholder="Количество" />
       <input v-model="book.type" type="text" placeholder="Тип книги" />
+      
       <button @click="createBook"> Добавить </button>
       <button @click="closeForm"> X </button>
     </form>
@@ -14,22 +15,25 @@
 export default {
   data() {
     return {
-      book: {},
+      book: {}
     }
   },
   props: {
-    bookProp: {},
+    bookToEdit: {}
   },
   methods: {
     closeForm() {
-      console.log("bookProp " + this.bookProp.id);
       this.$emit("closeForm");
     },
     createBook() {
-      console.log(this.book.id);
-      this.$emit("createBookAction", this.book);
+      this.$store.dispatch("addBook", this.book)
     },
   },
+  watch: {
+    bookToEdit(newValue, oldValue) {
+      console.log(newValue.id + ' ' + oldValue.id)
+    }
+  }
 };
 </script>
 

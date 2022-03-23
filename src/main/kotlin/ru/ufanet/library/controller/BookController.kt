@@ -1,5 +1,6 @@
 package ru.ufanet.library.controller
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.springframework.web.bind.annotation.*
 import ru.ufanet.library.domain.Book
 import ru.ufanet.library.service.BookService
@@ -14,7 +15,7 @@ class BookController(private val bookService: BookService) {
         return bookService.getAll()
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     fun getBook(@PathVariable id: Long): Book {
         return bookService.getById(id)
     }
@@ -24,13 +25,13 @@ class BookController(private val bookService: BookService) {
         return bookService.add(book)
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     fun editBook(@PathVariable id: Long, book: Book) : Book {
         bookService.edit(id, book)
         return book
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     fun deleteBook(@PathVariable id: Long) {
         bookService.remove(id)
     }

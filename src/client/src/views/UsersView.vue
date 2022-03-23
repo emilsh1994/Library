@@ -1,14 +1,14 @@
 <template>
   <div class="users">
-    <UserComponent/>
+    <UsersTable/>
   </div>
 </template>
 
 <script>
-import UserComponent from "@/components/Users-component";
+import UsersTable from "@/components/tables/UsersTable";
 export default {
   components: {
-    UserComponent
+    UsersTable
   }
 }
 </script>

@@ -1,9 +1,11 @@
 package ru.ufanet.library.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import ru.ufanet.library.domain.enum.BookType
 import javax.persistence.*
 
 @Entity
+@JsonIgnoreProperties(value = ["hibernateLazyInitializer", "handler"])
 data class Book(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
