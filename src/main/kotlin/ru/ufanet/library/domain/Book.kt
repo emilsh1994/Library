@@ -12,5 +12,5 @@ data class Book(
     open var id: Long? = 0,
     open var title: String? = "тут ноль",
     open var quantity: Int? = 0,
-    open var bookType: BookType? = BookType.PHYSICAL_BOOK
+    open var type: BookType? = BookType.PHYSICAL_BOOK
 )

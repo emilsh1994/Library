@@ -4,8 +4,8 @@
       <input v-model="book.title" type="text" placeholder="Название книги" />
       <input v-model="book.quantity" type="number" placeholder="Количество" />
       <input v-model="book.type" type="text" placeholder="Тип книги" />
-      
-      <button @click="createBook"> Добавить </button>
+
+      <button @click="saveBook"> Сохранить </button>
       <button @click="closeForm"> X </button>
     </form>
   </div>
@@ -13,28 +13,20 @@
 
 <script>
 export default {
-  data() {
-    return {
-      book: {}
+  computed: {
+    book() {
+      return this.$store.state.bookToEdit;
     }
-  },
-  props: {
-    bookToEdit: {}
   },
   methods: {
     closeForm() {
-      this.$emit("closeForm");
+      this.$store.dispatch("switchForm", false)
     },
-    createBook() {
-      this.$store.dispatch("addBook", this.book)
+    saveBook() {
+      this.$store.dispatch("createBook", this.book)
     },
   },
-  watch: {
-    bookToEdit(newValue, oldValue) {
-      console.log(newValue.id + ' ' + oldValue.id)
-    }
-  }
-};
+}
 </script>
 
 <style>

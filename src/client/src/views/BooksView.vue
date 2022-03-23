@@ -1,56 +1,47 @@
 <template>
-  <button @click="dialogVisibility()">Добавить книгу</button>
-  <BooksTable :books="books" @removeBook="removeBook" @editBook="editBook" />
+  <button @click="createBook">Добавить книгу</button>
+  <book-list :books="books" />
   <div v-if="dialogVisible">
-    <BooksForm @createBookAction="addBook" @closeForm="closeForm" />
+    <book-form  @closeForm="closeForm" />
   </div>
 </template>
 
 <script>
-import BooksTable from "@/components/tables/BooksTable.vue";
-import BooksForm from "@/components/BookForm.vue";
+import BookList from "@/components/books/BookList.vue";
+import BookForm from "@/components/books/BookForm.vue";
 
 export default {
   data() {
     return {
-      dialogVisible: false,
+      formSwitch: false,
     };
   },
   components: {
-    BooksTable,
-    BooksForm,
+    BookList,
+    BookForm,
   },
   computed: {
     books() {
-      return this.$store.state.books;
+      return this.$store.state.books
+    },
+    dialogVisible() {
+      return this.$store.state.showForm
     },
   },
   methods: {
+    createBook() {
+      this.$store.dispatch("switchForm", true);
+      this.$store.dispatch("setBook", {})
+    },
     closeForm() {
       this.dialogVisibility();
     },
     dialogVisibility() {
-      this.dialogVisible = !this.dialogVisible;
+      this.dialogVisibleToggle = !this.dialogVisible;
     },
     editBook(book) {
       console.log(book.id + " for edit from parent");
-      this.$store.dispatch('getBook', book.id)
-    },
-    removeBook(book) {
-      let id = book.id;
-      try {
-        this.$store.dispatch("deleteBook", id);
-      } catch (e) {
-        console.log(e);
-      }
-    },
-    addBook(book) {
-      this.dialogVisible = false;
-      try {
-        this.$store.dispatch("addBook", book);
-      } catch (e) {
-        console.log(e);
-      }
+      this.dialogVisibleToggle = this.dialogVisible;
     },
   },
   mounted() {
