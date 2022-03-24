@@ -24,6 +24,7 @@ export default {
     },
     saveBook() {
       this.$store.dispatch("createBook", this.book)
+      this.$store.dispatch("switchForm", false)
     },
   },
 }
