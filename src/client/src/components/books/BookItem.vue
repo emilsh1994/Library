@@ -5,6 +5,12 @@
     <strong>Название:</strong> {{ book.title }} 
     <strong>Количество:</strong>{{ book.quantity }}
     <strong>Тип книги:</strong> {{ book.type }}
+    <button 
+      class="btn btn-primary" 
+      @click="$router.push(`/book/${book.id}`)"
+    >
+      Открыть
+      </button>
     <button
       class="btn btn-secondary"
       style="margin-right: 10px"

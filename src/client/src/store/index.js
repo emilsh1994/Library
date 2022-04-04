@@ -69,5 +69,10 @@ export default createStore({
         switchForm({ commit }, Boolean) {
             commit('SWITCH_FORM', Boolean)
         }
+    },
+    getters: {
+        getBook(state, id) {
+            return state.books.find(book => book.id === id)
+        }
     }
 });

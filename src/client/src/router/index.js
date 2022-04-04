@@ -8,9 +8,14 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/book',
+    path: '/book/',
     name: 'books',
     component: () => import(/* webpackChunkName: "about" */ '../views/BooksView.vue')
+  },
+  {
+    path: '/book/:id',
+    name: 'book',
+    component: () => import(/* webpackChunkName: "about" */ '../views/SingleBookView.vue')
   },
   {
     path: '/author',
