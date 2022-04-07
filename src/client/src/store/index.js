@@ -7,6 +7,7 @@ export default createStore({
     state: {
         books: [],
         book: {},
+        bookToOpen : {},
         bookToEdit: {},
         showForm: false
     },
@@ -27,6 +28,9 @@ export default createStore({
         },
         SWITCH_FORM(state, Boolean) {
             state.showForm = Boolean
+        },
+        SET_BOOK_TO_OPEN(state, book) {
+            state.bookToOpen = book
         }
     },
     actions: {
@@ -68,11 +72,12 @@ export default createStore({
         },
         switchForm({ commit }, Boolean) {
             commit('SWITCH_FORM', Boolean)
+        },
+        setBookToOpen({commit}, book) {
+            commit('SET_BOOK_TO_OPEN', book)
         }
     },
     getters: {
-        getBook(state, id) {
-            return state.books.find(book => book.id === id)
-        }
+        getBook: state => state.bookToOpen
     }
-});
+})

@@ -7,7 +7,7 @@
     <strong>Тип книги:</strong> {{ book.type }}
     <button 
       class="btn btn-primary" 
-      @click="$router.push(`/book/${book.id}`)"
+      @click="openBook(book)"
     >
       Открыть
       </button>
@@ -38,6 +38,10 @@ export default {
     removeBook(book) {
       this.$store.dispatch("deleteBook", book.id);
     },
+    openBook(book) {
+      this.$store.dispatch('setBookToOpen', book);
+      this.$router.push(`/book/${book.id}`);
+    }
   },
 };
 </script>
